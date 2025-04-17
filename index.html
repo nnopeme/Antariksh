@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Kiddo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background: url('BG2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 40px;
+        }
+
+        .top-section {
+            padding: 40px 20px 20px;
+        }
+
+        .polaroid-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+
+        .polaroid {
+            background: #fff;
+            color: #000;
+            padding: 10px 10px 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            width: 160px;
+            transform: rotate(-1deg);
+            transition: transform 0.3s ease;
+        }
+
+        .polaroid:nth-child(2) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid:nth-child(3) {
+            transform: rotate(-3deg);
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05);
+        }
+
+        .polaroid img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        /* Mobile specific styles */
+        @media (max-width: 600px) {
+            .polaroid-gallery {
+                gap: 10px;
+            }
+
+            .polaroid {
+                width: 100px;
+                padding: 5px 5px 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* Even smaller screens */
+        @media (max-width: 400px) {
+            .polaroid {
+                width: 80px;
+                padding: 4px 4px 12px;
+            }
+        }
+
+        .countdown {
+            font-size: 1.2em;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #ff80ab;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 20px;
+        }
+
+        .button:hover {
+            background-color: #ff5c9a;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 1.15em;
+        }
+
+        #reasonBox {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Section -->
+    <div class="top-section">
+        <h1 id="topReason">You're all<br>i need</h1>
+
+        <div class="polaroid-gallery">
+            <div class="polaroid"><img src="image1.jpg" alt="1"></div>
+            <div class="polaroid"><img src="image2.jpg" alt="2"></div>
+            <div class="polaroid"><img src="image3.jpg" alt="3"></div>
+        </div>
+
+        <div class="countdown">2 DAYS until our trip</div>
+        <div>
+            <button class="button" onclick="showRandomReason()">Why I Love You</button>
+        </div>
+    </div>
+
+    <!-- Message Section -->
+    <div class="container">
+        <h2>A Letter to My Kiddo</h2>
+        <p>Hi my kiddo,</p>
+        <p>It's been six months since I first spoke to you, and in that time, you've become one of the most important
+            people in my life...</p>
+        <p>Out of 8 billion smiles in this world, yours is the only one that brings me to life...</p>
+        <p>Sure, we have our fights and disagreements, but you're so precious to me...</p>
+        <p>I could never fully express what you truly mean to me...</p>
+        <p>Remember when you told me to thank my stars for meeting you?... </p>
+        <p><strong>Yours, in all ways, Always.</strong></p>
+
+        <button class="button" onclick="sendMessage()">Send Sweet Message</button>
+        <div id="reasonBox"></div>
+    </div>
+
+    <script>
+        const reasons = [
+            "The way your smile brightens up my world",
+            "Your laugh is my favourite sound",
+            "Your smile is my most favourite thing to look at",
+            "You're my muse",
+            "You're all I need",
+            "The way you make even the ordinary feel extraordinary.",
+            "Your presence is the calm I need in this chaotic world.",
+            "You're the reason my heart feels at home.",
+            "Every moment with you is a cherished memory.",
+            "You make every day brighter just by being you."
+        ];
+
+        function showRandomReason() {
+            const random = reasons[Math.floor(Math.random() * reasons.length)];
+
+            // Update top heading
+            const topHeading = document.getElementById("topReason");
+            topHeading.innerHTML = random;
+
+            // Optional: still show in reasonBox if you want
+            const box = document.getElementById("reasonBox");
+            if (box) {
+                box.innerText = "Reason: " + random;
+            }
+        }
+
+        function sendMessage() {
+            alert("Sending you a sweet message filled with love! 💖");
+        }
+    </script>
+
+
+</body>
+
+</html>
